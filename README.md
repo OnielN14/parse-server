@@ -855,3 +855,7 @@ Support us with a monthly donation and help us continue our activities. [Become 
 -----
 
 As of April 5, 2017, Parse, LLC has transferred this code to the parse-community organization, and will no longer be contributing to or distributing this code.
+
+
+# Fork Changes
+The purpose of the fork is to make Parse Server fit my private project. In the current official repository, the LiveQuery does not show the socket connection's data such as `clientId` when the clients disconnect (ws_disconnect). The changes only occurs in [ParseLiveQueryServer.js](./src/LiveQuery/ParseLiveQueryServer.js)
