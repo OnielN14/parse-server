@@ -563,6 +563,11 @@ ParseCloud.beforeSubscribe = function (parseClass, handler, validationHandler) {
   );
 };
 
+/**
+ * @method onLiveQueryEvent
+ * @name Parse.Cloud.onLiveQueryEvent
+ * @param {Function} handler The function to run on LiveQuery's event triggered. This function can be async and should take one parameter, a {@link Parse.Cloud.LiveQueryEventListener}
+ */
 ParseCloud.onLiveQueryEvent = function (handler) {
   triggers.addLiveQueryEventHandler(handler, Parse.applicationId);
 };
@@ -651,6 +656,24 @@ module.exports = ParseCloud;
  * @property {Integer} clients The number of clients connected.
  * @property {Integer} subscriptions The number of subscriptions connected.
  * @property {String} sessionToken If set, the session of the user that made the request.
+ */
+
+/**
+ * @interface Parse.Cloud.LiveQueryEventListener
+ * @property {String} event The name of the triggered event
+ * @property {Parse.Cloud.LiveQueryEventListener.Client|undefined} client
+ * @property {String|undefined} sessionToken If set, the session of the user that made the request.
+ * @property {Boolean} useMasterKey If true, means the master key was used.
+ * @property {String} installationId If set, the installationId triggering the request.
+ * @property {Integer} clients The number of clients connected.
+ * @property {Integer} subscriptions The number of subscriptions connected.
+ */
+
+/**
+ * @interface Parse.Cloud.LiveQueryEventListener.Client
+ * @property {String} id If set, the id of the client that made the request.
+ * @property {String} sessionToken If set, the session of the user that made the request.
+ * @property {String} installationId If set, the installationId triggering the request.
  */
 
 /**
